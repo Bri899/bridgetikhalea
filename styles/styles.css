@@ -1,0 +1,855 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+/* CUSTOM SIDE BAR */
+
+
+body::-webkit-scrollbar {
+  width: 0.35em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 50px #00272C;
+  /* border: 1px solid RGBA(194,130,126,0.25); */
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 60px;
+  background-color: #95A1A0;
+}
+
+/* CUSTOM CURSOR */
+#main{
+	height:100vh;
+  /* background-color: red; */
+}
+#cursor{
+	height: 10px;
+	width: 10px;
+	background-color:#3950FA;
+	position:fixed;
+	border-radius: 100px;
+  z-index: 1;
+}
+
+/* BACKGROUND GRIDDDDD */
+.background-grid {
+
+  --grid-size: 90px;
+  --grid-strength: 1px;
+  --grid-dash: 0;
+  --grid-gap: 0;
+  --grid-color: #7a721d17;
+  --paper-color: #00272C;
+
+
+background-color: var(--paper-color);
+background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+background-image:
+  linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)), 
+  linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+  linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+  linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+}
+
+
+@font-face {
+    font-family: 'TAN - PEARL';
+    src: url('./fonts/TAN-PEARL-Regular.woff2') format('woff2'),
+        url('./fonts/TAN-PEARL-Regular.woff') format('woff'),
+        url('./fonts/TAN-PEARL-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Apoc LC Trial Revelations';
+    src: url('./fonts/ApocLCTrial-Revelations.woff2') format('woff2'),
+        url('./fonts/ApocLCTrial-Revelations.woff') format('woff'),
+        url('./fonts/ApocLCTrial-Revelations.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apoc LC Trial Light Sans';
+  src: url('ApocLCTrial-LightSans.woff2') format('woff2'),
+      url('ApocLCTrial-LightSans.woff') format('woff'),
+      url('ApocLCTrial-LightSans.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DIRECT FONT LINK */
+
+@import url(https://db.onlinewebfonts.com/c/48675eaee481e0713568715f7d5fe7c7?family=Apoc+Sans+Light);
+@font-face {
+  font-family: "Apoc Sans Light";
+  src: url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.eot");
+  src: url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/48675eaee481e0713568715f7d5fe7c7.svg#Apoc Sans Light")format("svg");
+}
+
+
+
+body{
+    background-color: #00272C;
+    height: 100% !important;
+    color: #F8F1EC;
+    /* min-height: 500vh; */
+}
+
+.body_wrapper{
+    /* max-width: 1440px; */
+    display: block;
+}
+
+.hero{
+ 
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.nav{
+    display: flex;
+    /* gap:183px; */
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 40px 90px;
+}
+.nav_wrap{
+    display: flex;
+    flex-direction: column;
+    column-gap: 0px;
+}
+
+.nav_wrap p, a{
+    color: #F8F1EC; 
+    opacity: 0.4;
+    font: normal 14px mulish;
+}
+
+.nav_wrap a{
+    text-decoration: none;
+    opacity: 0.8 !important;
+}
+
+.nav_link{
+  opacity: 0.8!important;
+  border-bottom: 0px solid #E1FF51;
+  animation-name: border_animation;
+  animation-duration: infinite; 
+}
+
+.nav_wrap a:hover{
+  color:#E1FF51;
+  border-bottom: 1px solid #E1FF51;
+  transition: ease-in 0.5s;
+  transform: translateY(50%);
+}
+
+
+
+
+.hero_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+}
+.hero_main img{
+    width: 275px;
+    height: 196px;
+}
+.elipse_dark{
+  position: absolute;
+  /* background-color: red; */
+  top:200px;
+  right:200px;
+  width: 110px !important;
+  height: 100px !important;
+}
+.accents_about{
+  position: relative;
+  left: -44px;
+  top:-44px;
+}
+.works_accents{
+  position: relative;
+  left: 0px;
+  top:0px;
+  margin: 0 !important;
+  display: block;
+}
+
+.yellow_elipse{
+  /* position: relative; */
+  top: 41px;
+  left:-906px;
+}
+.star_dark{
+  position: absolute;
+  top:675px;
+  right:137px;
+  width: 86px !important;
+  height: 90px !important;
+  /* opacity: 0.25; */
+}
+.yellow{
+  top:-122px;
+  /* position: relative; */
+  left:-826px;
+  /* right: 200px; */
+}
+.box{
+  width: 157px !important;
+  height: 147px !important;
+  position: absolute;
+  top: -750px;
+  left: 55px;
+}
+.blue_elipse{
+  position: absolute;
+  top: -430px;
+  right: 55px;
+}
+
+
+
+h1{
+    color: #E1FF51;
+    font-family: 'TAN - PEARL';
+
+    font-size: 154px;
+    font-weight: 300;
+    }
+
+    .mini_titles{
+        font: normal 10px mulish;
+        color: #E1FF51;
+        text-transform: uppercase;
+        line-height: 18px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .mini_titles img{
+        width: 28px;
+        height: 58px;
+        margin-top: -2px;
+
+    }
+
+  .body_lg{
+    font-family: 'Apoc LC Trial Revelations';
+    font-size: 43px;
+    text-align: center;
+    color: #95A1A0;
+    line-height: 60px;
+    /* display: flex;
+    flex-direction: column; */
+    width: 44%;
+  }
+
+  .body_lg span{
+    font: normal 19px mulish;
+    text-transform: uppercase;
+    border-bottom: 4px solid #95A1A0;
+    position: relative;
+    top: -12px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .body_lg span:hover{
+    color:#E1FF51;
+    border-bottom: 4px solid #E1FF51;
+  }
+
+
+  /* ABOUT ME */
+  .about_wrapper{
+    background-color: #E1FF51;
+    border-radius: 5000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 196px 0 250px 0;
+    margin: 190px 0 285px 0;
+  
+  }
+  .about_grid{
+
+      --grid-size: 90px;
+      --grid-strength: 1px;
+      --grid-dash: 0;
+      --grid-gap: 0;
+      --grid-color: #7a721d24;
+      --paper-color: #E1FF51;
+    
+    
+    background-color: var(--paper-color);
+    background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+    background-image:
+      linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)), 
+      linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+      linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+      linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+    
+  }
+
+  .about_heading_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 360px;
+
+  }
+  h2{
+    font: normal 143px 'TAN - PEARL';
+    color: #042B2D;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .mini_title_about{
+    color: #00272C;
+    font-weight: bold;
+    position: relative;
+    /* top: -50px; */
+  }
+  .mini_title_about span{
+    font-weight: normal;
+    opacity: 0.6;
+  }
+  .about_img{
+    z-index: 1;
+    height: 835px;
+    width: 725px;
+    
+  } 
+  .imgmove{
+    animation: moveimgage 5s infinite;
+  }
+  
+  @keyframes moveimgage{
+    from {top: 0px;}
+    to {top: 200px;}
+  }
+
+  .about_img_descr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:30px;
+  }
+  .abt_descr{
+    display: block;
+    /* flex-direction:column;
+    justify-content: center; */
+    rotate: -3.69deg;
+    margin: -70px 0 0 -100px;
+  }
+
+  .about_para_handshake_wrapper{
+    background-color: #FFFBC7;
+    border-radius: 50000px;
+    height: 675px;
+    width: 675px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    margin: -25px 0 0 0;
+  }
+
+  .abt_me_para, .abt_uppercase_cta{
+    color: #7A731D;
+    font: normal 16px 'Apoc LC Trial Revelations';
+    line-height: 29px;
+    max-width: 410px;
+  }
+  .handshake_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .handshake{
+    width: 160px;
+  }
+  .abt_uppercase_cta{
+    text-transform: uppercase;
+    font: normal 12px mulish;
+
+  }
+
+  .abt_cta_btn{
+    color: #7A731D !important;
+    font: normal 14px mulish;
+    line-height: 22px;
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+    margin: 60px 0 0 80px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    
+  }
+
+  /* .abt_cta_btn:hover{
+    gap:50px;
+  } */
+ .abt_cta_btn a{
+      color: #7A731D !important;
+      opacity: 1 !important;
+      text-decoration: none;
+
+ }
+  .abt_cta_btn div{
+    border: 1px solid #7A731D;
+    border-radius: 5000px;
+    height: 236px;
+    width: 236px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .abt_cta_btn div:hover{
+    background-color:#00272c2e;
+  }
+
+  .abt_cta_btn p{
+    display: inline;
+    margin: 0;
+    rotate: -9deg;
+  }
+
+
+  /* SELECTED WORKS */
+  .selected_works_wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0px 0;
+    gap: 70px;
+
+  }
+  .works_heading_wrap{
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    padding: 0 0 0 55px;
+    
+  }
+  .selected_works_wrapper h2{
+    color:#E1FF51;
+    text-align: left;
+    margin: 0;
+    vertical-align:text-bottom;
+  }
+
+  .works_heading_wrap div{
+    display: flex;
+    flex-direction: column;
+    gap:23px;
+    position: relative;
+    margin: 0 0 23px -50px;
+    padding: 50px;
+    border: 1px solid #f8f1ec00;
+    height: 165px;
+    width: 165px;
+    cursor: pointer;
+  }
+  .works_heading_wrap a{
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .works_heading_wrap div:hover{
+    background-color: #e2ff5111;
+    border: 1px solid #f8f1ec60;
+    border-radius: 500px;
+    padding: 50px;
+   
+  }
+
+  .works_heading_wrap img{
+    height: 67px;
+    width: 67px;
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 500px;
+  }
+  /* .works_heading_wrap img:hover{
+    background-color:#A6BC09;
+  } */
+
+  .selected_works_wrapper p{
+    color: #F8F1EC; 
+    opacity: 0.6;
+    font: normal 14px mulish;
+    line-height: 22px;
+  }
+
+  .selected_works_main{
+    display: flex;
+    flex-direction: column;
+    color: #E1FF51;
+    padding: 0 90px;
+    border: 1px solid #416636;
+    gap:4px;
+  }
+  .selected_works_main a{
+    opacity: 1;
+    text-decoration: none;
+    color: #E1FF51;
+  }
+  .place_holder{
+    /* width: 100%; */
+    height: 169px;
+    width: 246px;
+    background-size: cover;
+  }
+  .selected_works_individual{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center !important;
+    flex-wrap: wrap;
+    border: 1px solid #416636;
+    border-color: #416636;
+    border-width: 1px 1px 1px 1px;
+    padding: 0 35px;
+    height: 200px;
+  }
+
+  .selected_works_individual:hover{
+    background-color: #e2ff5111;
+    padding: 0 15px 0 35px;
+    transition: ease 0.25s;
+    border: 1px solid #E1FF51;
+    
+  }
+  .first{
+    border-width: 0 1px 1px 1px;
+  }
+  .last{
+    border-width: 1px 1px 0 1px;
+  }
+  .last .title_arrow_wrap{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title_arrow_wrap{
+    display: flex;
+    gap: 116px;
+  }
+  .title_wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .title_wrap p{
+    font: lighter 13px mulish;
+    color: #E1FF51;
+    opacity: 1;
+  }
+  .title_wrap h3{
+    text-transform: uppercase;
+    font: normal 58px "Apoc Sans Light";
+    letter-spacing:1px;
+  }
+  
+
+  .arrow_view{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    cursor: pointer;
+  }
+  .arrow_view p{
+    color:#E1FF51;
+    opacity: 1;
+  }
+
+  .arrow_view p:hover{
+    text-decoration: underline;
+  }
+  .arrow_view img{
+    width: 37px;
+  }
+
+  .arrow_view:hover{
+    gap:25px;
+    transition: ease 0.25s;
+   }
+
+  /* WORKING WITH ME */
+
+  .working_with_me_wrapper{
+    padding: 0 92px;
+  }
+
+  .working_with_me_wrapper .about_wrapper{
+    background-color: #A6BC09;
+    height: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image:url(/images/Skills.svg);
+    background-size: contain;
+    background-position:bottom;
+    background-position-x: 50px;
+    background-repeat: no-repeat;
+  
+    
+  }
+  .working_with_me_wrapper .about_heading_wrapper{
+    flex-direction: column;
+    padding: 0;
+    
+  }
+  .working_with_me_wrapper .body_lg{
+    color: #02282B;
+    width: 80%;
+  }
+  .working_with_me_wrapper span{
+    border-color: #02282B;
+  }
+
+
+  /* SOCIAL MEDIA LINKS */
+
+  .social_media_wrapper{
+    padding: 0 0 190px 0;
+  }
+  
+
+  .social_media_wrapper h3{
+    font: normal 92px 'TAN - PEARL';
+    
+  }
+  .social_media_wrapper .selected_works_individual{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .social_media_wrapper .title_wrap{
+    align-items:start;
+  }
+
+
+
+  /* FOOTERRRRR <333 */
+  .footer_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 0 0 20px 0;
+  }
+  
+  .email{
+    font: normal 114px 'TAN - PEARL';
+    color:#E1FF51;
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .quick_links{
+    border: 1px solid #416636;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    height: 250px;
+    align-items: center;
+    padding: 0 90px;
+  }
+
+  
+  .quick_links div{
+    border: 1px solid #416636;
+    border-width: 0 0 0 1px;
+    padding: 103px 0;
+    /* border-color: red; */
+    width: 340px!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quick_links div:hover{
+     background-color: #e2ff5111;
+    transition: ease 0.25s;
+    /* border: 1px solid #E1FF51; */
+  }
+
+
+  .quick_links .last_quick_link{
+    border-width: 0 1px !important;
+  }
+  .quick_links a{
+    text-decoration: none;
+    font: normal 35px "Apoc Sans Light";
+    text-transform: uppercase;
+    color:#F8F1EC;
+    opacity: 1;
+    word-wrap: normal;
+    text-align: center;
+  }
+
+  .copyright_wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 90px;
+    font: normal 16px mulish;
+    color: #F8F1EC;
+    opacity: 0.6;
+  }
+  .copyright_links{
+    display: flex;
+    gap: 30px;
+  }
+
+
+
+
+
+
+
+
+
+  /* TESTING PARAGRAPH ANIMATION */
+
+  /* test animation */
+  .anim{
+    height: 200vh;
+    /* width: 100%; */
+    border: 1px solid yellow;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+
+  }
+
+  .anim div{
+    height: 50px;
+    width: 50px;
+    position: relative;
+  }
+  
+  .anim1{
+    background-color: red;
+    animation: move1 5s infinite;
+  }
+
+  .anim2{
+     background-color: orange;
+     animation: move2 5s infinite;
+  }
+
+  .anim3{
+    width: 400px !important;
+    height: 500px !important;
+    background-color: green;
+  }
+ 
+  @keyframes move1{
+    0% { transform: rotate(0deg) ; }
+    25% { transform: rotate(90deg) ; }
+    50% { transform: rotate(180deg) ; }
+    75% { transform: rotate(270deg) ; }
+    100% { tranform: rotate (360deg) ; }
+  }
+
+
+  @keyframes move2{
+    from {top: 0px;}
+    to {top: 200px;}
+  }
+  
+
+  /* .txt_div{
+    height: 100vh;
+    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+  }
+    
+   .txt_div p{
+    font: normal 60px mulish;
+    line-height: 60px !important;
+    margin:0;
+
+    font-size: clamp(18px, 3vw, 60px);
+    .line {
+		overflow: hidden;
+		}
+  } */
+  .moveabt{
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+    padding: 20px 0 0 0;
+  }
+  .txt_div p{
+    font: normal 16px 'Apoc LC Trial Revelations';
+    line-height: 29px;
+    max-width: 430px;
+    margin:0;
+
+    font-size: clamp(16px, 3vw, 16px);
+    .line {
+		overflow: hidden;
+		}}
+
+
+    .space{
+      height: 200vh;
+      background-color: pink;
+    }
+
+
+    /* HERO ANIMATION CSS */
+    .hero_span_wrap{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content:space-between;
+      /* gap: 30px; */
+      width: 95%;
+
+    }
+
+    .hero_span_wrap div{
+      /* width: 50px; */
+      height: 15px;
+      background-color: red;
+    }
